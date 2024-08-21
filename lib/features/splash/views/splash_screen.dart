@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_wave/core/utils/app_color.dart';
 import 'package:news_wave/core/utils/app_images.dart';
-import '../../home/views/home_screen.dart';
+import 'package:news_wave/features/sign_up/presentetion/views/sign_up_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -10,18 +11,16 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  @override
   void initState() {
-
     super.initState();
-    Future.delayed(const Duration(
-        seconds: 3
-    ) , ( ) {
-
+    Future.delayed(const Duration(seconds: 3), () {
       Navigator.push(context, MaterialPageRoute(builder: (C) {
-        return HomeScreen();
-      } ));
+        return const SignUpScreen();
+      }));
     });
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,13 +29,12 @@ class _SplashScreenState extends State<SplashScreen> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
-            child: Image.asset(AppImages.logo,
+            child: Image.asset(
+              AppImages.logo,
               width: 186,
               height: 127,
-
             ),
           ),
-
         ],
       ),
     );
